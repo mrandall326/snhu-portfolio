@@ -1,44 +1,36 @@
-Portfolio Reflection
+CS‑230: Operating Platforms
 
-Summary of the Client and Requirements
-- Client: The Gaming Room
-- Project Goal: Expand their Android game Draw It or Lose It into a web‑based, multi‑platform application.
-- Key Requirements:
-- Support Windows, macOS, Linux, and mobile browsers
-- Enforce unique game, team, and player identifiers
-- Maintain a single active game instance in memory
-- Provide real‑time drawing, guessing, and synchronized game state
-- Deliver a consistent user experience across all platforms
+This folder contains my portfolio artifact for CS‑230: Operating Platforms, part of the SNHU Computer Science program. The course focused on understanding operating system architectures, distributed systems, platform constraints, and the process of designing software that can run reliably across multiple environments.
 
-What I Did Well
-- I clearly translated the client’s requirements into practical architectural decisions.
-- The Domain Model section was especially strong, demonstrating how object‑oriented principles supported the game’s structure.
-- I explained not just what the system needed, but why certain design choices were necessary.
+Artifact Included:
 
-Helpful Parts of the Design Process
-- Creating the design document before coding helped me:
-- Build a clear mental model of the system
-- Understand relationships between components
-- Reduce rework during development
-- Approach coding with confidence and structure
+Draw It or Lose It – Software Design Document
 
-What I Would Revise
-- I would enhance the System Architecture View with a more detailed visual diagram.
-- A diagram showing client–server interactions, database flow, and real‑time communication would make the architecture even clearer for both technical and non‑technical stakeholders.
+This document represents my completed software design for The Gaming Room, a client seeking to expand their Android game into a scalable, web‑based, multi‑platform application.
 
-Interpreting and Implementing User Needs
-- I considered both the client’s goals (scalability, maintainability, security) and the players’ needs (smooth, responsive gameplay).
-- I implemented these needs by:
-- Choosing platform‑independent technologies
-- Designing for real‑time communication
-- Enforcing strict uniqueness and game‑state rules
-- Considering user needs is essential because software must align with real‑world expectations to deliver value.
+The design covers:
+- Business and technical requirements
+- Design constraints
+- Domain model and UML class structure
+- Evaluation of operating platforms (Linux, Windows, macOS, mobile)
+- Final architectural recommendations
+- Security, scalability, and distributed‑system considerations
+  
+The full document is located in the project‑level folder:
 
-My Approach to Software Design
-- I used a modular, scalable, and layered approach.
-- Key strategies included:
-- Requirements analysis
-- UML modeling
-- Object‑oriented design principles
-- Distributed‑system best practices
-- In future projects, I would continue using these techniques to ensure clarity, feasibility, and alignment with client goals before writing any code.
+/CS-230-Operating-Platforms/Draw-It-or-Lose-It-Design-Template/
+
+Purpose of This Artifact
+
+This design document demonstrates my ability to:
+- Analyze client requirements
+- Evaluate operating platforms and architectural tradeoffs
+- Apply object‑oriented design principles
+- Communicate technical decisions clearly and professionally
+- Design a distributed, web‑based system from the ground up
+
+It serves as a strong example of my technical writing, architectural reasoning, and ability to translate user needs into a complete software design.
+
+Reflection
+
+A full reflection on this artifact — including what I learned, what I did well, and how I would improve the work — is included in the project‑level README within the Draw It or Lose It folder.
