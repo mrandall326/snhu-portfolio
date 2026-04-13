@@ -32,8 +32,8 @@ Through this module, I strengthened my ability to:
 ---
 
 ## 📄 Included Files
-'VectorSorting.cpp'
-'Code Reflection and Pseudocode.docx'
+- `VectorSorting.cpp`
+- `Code Reflection and Pseudocode.docx`
 
 
 ### **VectorSorting.cpp**
