@@ -1,7 +1,7 @@
 # CS 255 – System Analysis and Design
 This folder contains my coursework, diagrams, and documentation for CS 255: System Analysis and Design. The class focuses on understanding how real-world business problems are translated into structured system requirements and visual models. Throughout the course, I worked with tools like UML diagrams, use cases, and process modeling to break down how systems behave and how different users interact with them.
 
-📘 What’s in This Folder
+## 📘 What’s in This Folder
 
 You’ll find a mix of assignments and artifacts that reflect the core skills developed in the course, including:
 - Use case diagrams
@@ -12,7 +12,7 @@ You’ll find a mix of assignments and artifacts that reflect the core skills de
 - System modeling exercises
 Each piece builds on the idea of analyzing a business process, identifying what the system needs to do, and representing that visually and clearly.
 
-🎯 Course Focus
+## 🎯 Course Focus
 
 CS 255 emphasizes:
 - Understanding business needs before designing solutions
@@ -22,7 +22,7 @@ CS 255 emphasizes:
 - Translating requirements into structured documentation
 The work in this folder shows how those concepts come together across different assignments.
 
-🛠 Skills Developed
+## 🛠 Skills Developed
 
 By the end of the course, I strengthened my ability to:
 - Break down complex processes into clear steps
