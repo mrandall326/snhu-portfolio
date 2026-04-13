@@ -1,1 +1,42 @@
+# CS 255 – Business Requirements Document (Part One)
+
+This repository contains **Part One** of the Business Requirements Document (BRD) for the DriverPass system, completed for *CS 255: System Analysis and Design* at Southern New Hampshire University.
+
+Part One focuses on establishing the foundational understanding of the system by defining its purpose, background, and measurable objectives based on the client interview.
+
+## 📌 Project Scope (Part One Only)
+
+### **1. Purpose**
+Defines the overall intent of the DriverPass system and what the client wants the system to accomplish.  
+This section summarizes DriverPass’s goals to provide online classes, practice tests, and scheduling for driving lessons through a secure, web‑based platform.
+
+### **2. System Background**
+Explains the problem DriverPass aims to solve—high DMV test failure rates—and how the system will support improved driver training.  
+This section outlines the major system components needed, including online learning, scheduling, tracking, and DMV integration.
+
+### **3. Objectives and Goals**
+Breaks down the system’s required capabilities into measurable, testable tasks.  
+This includes account management, scheduling, reporting, role‑based access, DMV updates, and cross‑device accessibility.
+
+## 🧩 Source Material
+All requirements in Part One are derived from the **DriverPass Interview Transcript**, which details:
+- Client expectations  
+- User roles (Owner, IT Officer, Secretary, Customers)  
+- Scheduling and training package structure  
+- Security and tracking needs  
+- Desired system flexibility and cloud hosting  
+
+## 🎯 Purpose of This Submission
+Part One establishes the foundation for:
+- Functional and nonfunctional requirements  
+- Use case diagrams  
+- Activity diagrams  
+- Class diagrams  
+- Interface design (Part Two)  
+
+It ensures the system design aligns with the client’s needs before moving into modeling and implementation planning.
+
+## 📁 Files Included
+- `CS 255 Business Requirements Document Part One.docx`  
+- `DriverPass Interview Transcript.pdf`
 
