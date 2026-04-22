@@ -1,51 +1,55 @@
-# CS 255 – Module Eight  
-### Portfolio Submission & Reflection  
-**Status:** Placeholder — Final Reflection Coming Soon
+# CS 255 – Module 8  
+### Portfolio Submission & Final Reflection
 
-This folder serves as the placeholder for **Module Eight** of *CS 255: Systems Analysis and Design*.  
-Module 8 is the final journal assignment for the course and focuses on preparing portfolio artifacts and writing a reflection about the DriverPass project.
+This module contains my final journal reflection for *CS 255: System Analysis and Design*.  
+As part of the Computer Science program portfolio, this module includes two major artifacts:
 
-The completed reflection will be added here once the Module 8 journal is submitted.
+- **Project One:** Business Requirements Document  
+- **Project Two:** System Design Document  
 
----
-
-## 📌 Module Overview
-Module Eight is centered on:
-
-- Submitting selected artifacts to the GitHub portfolio  
-- Reflecting on the work completed in Project One and Project Two  
-- Updating the **root README** with written responses to the journal questions  
-- Demonstrating understanding of system analysis, requirements gathering, and system design  
-
-This module does **not** introduce new technical artifacts. Instead, it organizes and contextualizes the work completed throughout the course.
+Together, these documents demonstrate my ability to gather client requirements, analyze system needs, and design a complete technical solution.
 
 ---
 
-## 🧩 Final Deliverables (Coming Soon)
+## 📄 Portfolio Artifacts
 
-Once completed, this folder will include:
+- `BusinessRequirementsDocument.docx`
+- `SystemDesignDocument.docx`
 
-- A brief **Module 8 summary README** (this file will be updated)  
-- A link or reference to the **root README**, which will contain the full Module 8 reflection  
 
-The reflection will address:
-
-1. A summary of the DriverPass project  
-2. What I did particularly well  
-3. What I would revise and how  
-4. How I interpreted user needs and implemented them in the design  
-5. Why user needs matter in system design  
-6. My approach to designing software and strategies I will use in the future  
+These artifacts showcase my work in system analysis, requirements gathering, UML modeling, and system design.
 
 ---
 
-## 📁 Files Currently Included
-- `README.md` (placeholder)
+## 🧠 Final Reflection
+
+### **What was the problem you were solving in the projects for this course?**  
+The DriverPass project required designing a system for a client who wanted to improve driving test preparation for students. The client, Liam, needed a platform where users could access practice tests, schedule driving lessons, and track their progress. My task was to analyze the client’s needs, document the business requirements, and design a system architecture that would support those needs.
+
+### **What did you do particularly well?**  
+I did especially well in clearly identifying and documenting the functional and non‑functional requirements. My business requirements document was thorough, well‑structured, and aligned closely with the client’s goals. I also created detailed UML diagrams that accurately represented the system’s components and interactions.
+
+### **If you could revise one part of your work, what would it be and why?**  
+If I were to revise anything, I would refine the sequence diagrams in the system design document. While they were accurate, I would improve them by adding more detail around error handling and edge cases. This would make the diagrams more realistic and useful for developers implementing the system.
+
+### **How did you interpret the user’s needs and implement them into your system design? Why is this important?**  
+I interpreted the user’s needs by focusing on the core problems the client wanted to solve: improving access to practice materials, simplifying lesson scheduling, and providing progress tracking. I translated these needs into system features, workflows, and data structures. Considering user needs is essential because a system that doesn’t align with real‑world usage will fail, even if it is technically sound.
+
+### **How has your work on this project expanded your approach to designing software?**  
+This project reinforced the importance of starting with clear requirements before writing any code. It also strengthened my understanding of how diagrams, documentation, and stakeholder communication shape the development process. I now approach software design with a stronger emphasis on planning, validation, and iterative refinement.
+
+### **How has your work on this project evolved the way you write maintainable, readable, and adaptable programs?**  
+Working through the analysis and design phases helped me appreciate how much maintainability depends on early decisions. By defining clear requirements, modular components, and well‑structured workflows, I can write programs that are easier to extend and debug. This project improved my ability to think ahead and design systems that can grow over time.
 
 ---
 
-## 🔄 Next Steps
-This README will be updated next week with:
+## 🎯 Purpose of This Module
 
-- A finalized summary of Module 8  
-- A link to the completed reflection in the root README  
+This module adds two key artifacts to my long‑term portfolio and includes a reflection that documents what I learned in CS 255. These materials demonstrate my ability to:
+
+- Analyze client needs  
+- Document business and technical requirements  
+- Design system architecture  
+- Communicate technical decisions clearly  
+- Reflect on my work and growth as a developer  
+
