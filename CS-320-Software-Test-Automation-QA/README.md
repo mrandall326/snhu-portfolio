@@ -22,7 +22,7 @@
 
 | File | Description |
 |---|---|
-| `CS320_Project2_Summary_Reflections.pdf` | Final written report covering testing strategies, code coverage analysis, and QA methodology applied across all three service implementations |
+| `CS 320 Project2 Summary and Reflections.docx` | Final written report covering testing strategies, code coverage analysis, and QA methodology applied across all three service implementations |
 
 ---
 
