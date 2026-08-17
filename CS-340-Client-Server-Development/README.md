@@ -87,7 +87,25 @@ Identifying a candidate by hand means scanning roughly ten thousand shelter reco
 
 ## Screenshots
 
-<!-- placeholder -->
+![Unfiltered dashboard](screenshots/dashboard-unfiltered.png)
+
+*The dashboard in its starting state — all 10,000 records, with the data table, breed pie chart, and geolocation map.*
+
+![Water Rescue filter](screenshots/dashboard-water-rescue.png)
+
+*Water Rescue — 23 records, all intact females between 26 and 156 weeks.*
+
+![Mountain or Wilderness Rescue filter](screenshots/dashboard-mountain-rescue.png)
+
+*Mountain or Wilderness Rescue — 18 intact males. The pie legend shows the anchored breed pattern matching German Shepherd variants and mixes.*
+
+![Disaster or Individual Tracking filter](screenshots/dashboard-disaster-rescue.png)
+
+*Disaster or Individual Tracking — 30 records across the widest age range, 20 to 300 weeks.*
+
+![Reset](screenshots/dashboard-reset.png)
+
+*Reset from a filtered state — every widget returns to its original condition and the count returns to 10,000.*
 
 ---
 
