@@ -16,10 +16,10 @@ The repo is organized by course, with each folder containing its own README and 
 - [CS 320 – Software Testing, Automation QA](CS-320-Software-Test-Automation-QA) (Completed)
 - [CS 330 – Computer Graphics and Visualization](CS-330-Comp-Graphic-and-Visualization) (Completed)
 - [CS 340 – Client/Server Development](CS-340-Client-Server-Development) (Completed)
-- CS 360 – Mobile Architecture and Programming
-- CS 370 – Current/Emerging Trends in Computer Science
-- CS 465 – Full Stack Development
-- CS 499 – Computer Science Capstone
+- CS 360 – Mobile Architecture and Programming (Upcoming)
+- CS 370 – Current/Emerging Trends in Computer Science (Upcoming)
+- CS 465 – Full Stack Development (Upcoming)
+- CS 499 – Computer Science Capstone (Upcoming)
 
 As I complete each course, I add the major deliverables, diagrams, and code so the repository grows alongside my experience.
 ## 🛠 Skills Developed Throughout the Program
