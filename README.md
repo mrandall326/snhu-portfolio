@@ -5,17 +5,17 @@ This repository is a collection of my work throughout the Bachelor of Science in
 ## 🎓 Program Overview
 The SNHU CS program covers a wide range of topics, from foundational programming and data structures to system analysis, software engineering, databases, and cybersecurity. Each course folder in this repository includes the major assignments, labs, and artifacts that demonstrate what I learned and how I applied those concepts.
 ## 📂 Repository Structure
-The repo is organized by course, with each folder containing its own README and project files. Examples include:
+The repo is organized by course, with each folder containing its own README and project files:
 
-- CS 210 – Programming Languages (Completed)
+- [CS 210 – Programming Languages](CS-210-Programming-Languages) (Completed)
 - CS 230 - Operating Platforms (Completed)
 - CS 250 – Software Development Lifecycle (Completed)
-- CS 255 – System Analysis and Design (In Progress)
-- CS 300 – Data Structures and Algorithms: Analysis and Design (In Progress)
-- CS 305 – Software Security
-- CS 320 – Software Testing, Automation QA
-- CS 330 - Computer Graphic and Visualization
-- CS 340 – Client/Server Development
+- CS 255 – System Analysis and Design (Completed)
+- CS 300 – Data Structures and Algorithms: Analysis and Design (Completed)
+- CS 305 – Software Security (Completed)
+- CS 320 – Software Testing, Automation QA (Completed)
+- CS 330 - Computer Graphic and Visualization (Completed)
+- CS 340 – Client/Server Development (Completed)
 - CS 360 – Mobile Architecture and Programming
 - CS 370 - Current/Emerging Trends in Computer Science
 - CS 465 – Full Stack Development
@@ -29,7 +29,8 @@ Across the coursework in this repo, I’ve built experience in:
 - Data structures, algorithms, and performance considerations
 - Secure coding practices and vulnerability analysis
 - Software testing and automation
-- Database design and SQL
+- Database design with SQL and NoSQL (MongoDB, aggregation pipelines)
+- Client/server architecture and data-access layer design
 - Web, mobile, and full‑stack development
 - Agile methodology and team communication
 - Technical documentation and professional communication
