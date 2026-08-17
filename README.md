@@ -8,16 +8,16 @@ The SNHU CS program covers a wide range of topics, from foundational programming
 The repo is organized by course, with each folder containing its own README and project files:
 
 - [CS 210 – Programming Languages](CS-210-Programming-Languages) (Completed)
-- CS 230 - Operating Platforms (Completed)
-- CS 250 – Software Development Lifecycle (Completed)
-- CS 255 – System Analysis and Design (Completed)
-- CS 300 – Data Structures and Algorithms: Analysis and Design (Completed)
-- CS 305 – Software Security (Completed)
-- CS 320 – Software Testing, Automation QA (Completed)
-- CS 330 - Computer Graphic and Visualization (Completed)
-- CS 340 – Client/Server Development (Completed)
+- [CS 230 – Operating Platforms](CS-230-Operating-Platforms) (Completed)
+- [CS 250 – Software Development Lifecycle](CS-250-Software-Development-Lifecycle) (Completed)
+- [CS 255 – System Analysis and Design](CS-255-System-Analysis-and-Design) (In Progress)
+- [CS 300 – Data Structures and Algorithms: Analysis and Design](CS-300-DSA-Analysis-and-Design) (In Progress)
+- [CS 305 – Software Security](CS-305-Software-Security) (Completed)
+- [CS 320 – Software Testing, Automation QA](CS-320-Software-Test-Automation-QA) (Completed)
+- [CS 330 – Computer Graphics and Visualization](CS-330-Comp-Graphic-and-Visualization) (Completed)
+- [CS 340 – Client/Server Development](CS-340-Client-Server-Development) (Completed)
 - CS 360 – Mobile Architecture and Programming
-- CS 370 - Current/Emerging Trends in Computer Science
+- CS 370 – Current/Emerging Trends in Computer Science
 - CS 465 – Full Stack Development
 - CS 499 – Computer Science Capstone
 
