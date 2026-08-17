@@ -43,6 +43,7 @@ Identifying a candidate by hand means scanning roughly ten thousand shelter reco
 | `CRUD_Python_Module.py` | The `AnimalShelter` class — create, read, update, and delete operations against MongoDB |
 | `ProjectTwoDashboard.ipynb` | The dashboard application |
 | `CS_340_Project_Two_README.docx` | Full project documentation with development notes and screenshots |
+| `screenshots/` | Dashboard screenshots referenced above |
 
 ## Getting Started
 
@@ -168,5 +169,5 @@ So the practical result is more time spent training animals, less spent on data 
 
 ## Contact
 
-Matthew Randall
+Matthew Randall  
 Southern New Hampshire University | CS 340: Client/Server Development
