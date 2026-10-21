@@ -16,7 +16,7 @@ The repo is organized by course, with each folder containing its own README and 
 - [CS 320 – Software Testing, Automation QA](CS-320-Software-Test-Automation-QA) (Completed)
 - [CS 330 – Computer Graphics and Visualization](CS-330-Comp-Graphic-and-Visualization) (Completed)
 - [CS 340 – Client/Server Development](CS-340-Client-Server-Development) (Completed)
-- CS 360 – Mobile Architecture and Programming (Upcoming)
+- [CS 360 – Mobile Architecture and Programming](CS-360-Mobile-Architecture-and-Programming) (Completed)
 - CS 370 – Current/Emerging Trends in Computer Science (Upcoming)
 - CS 465 – Full Stack Development (Upcoming)
 - CS 499 – Computer Science Capstone (Upcoming)
@@ -31,6 +31,7 @@ Across the coursework in this repo, I’ve built experience in:
 - Software testing and automation
 - Database design with SQL and NoSQL (MongoDB, aggregation pipelines)
 - Client/server architecture and data-access layer design
+- Android app development with Java, SQLite, and Material Design
 - Web, mobile, and full‑stack development
 - Agile methodology and team communication
 - Technical documentation and professional communication
