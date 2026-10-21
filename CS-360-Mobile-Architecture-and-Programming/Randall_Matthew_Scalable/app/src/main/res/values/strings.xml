@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    strings.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<resources>
+    <!--
+        All user-facing text lives here instead of inside the layouts, so wording stays
+        consistent across screens and the app could be translated later without touching a layout.
+    -->
+    <string name="app_name">Scalable</string>
+
+    <!-- Screen titles shown in the top app bar (set as labels in nav_graph.xml). -->
+    <string name="label_login">Sign in</string>
+    <string name="label_weight_log">My weigh-ins</string>
+    <string name="label_goal">Goal weight</string>
+    <string name="label_sms">Text notifications</string>
+
+    <!-- Login screen -->
+    <string name="login_tagline">One number a day, and a clear picture of where it is heading.</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_sign_in">Sign in</string>
+    <string name="login_new_user_prompt">First time using Scalable?</string>
+    <string name="login_create_account">Create account</string>
+    <string name="login_message_account_created">Account created for %1$s. Welcome to Scalable.</string>
+    <string name="login_error_mismatch">That username and password don\'t match. Check them and try again, or create an account if you\'re new.</string>
+    <string name="login_error_taken">The username %1$s is already taken. If it\'s yours, tap Sign in. Otherwise, choose a different username.</string>
+    <string name="login_error_username_short">Choose a username with at least %1$d characters.</string>
+    <string name="login_error_password_short">Choose a password with at least %1$d characters.</string>
+    <string name="logo_description">Scalable logo, a bathroom scale</string>
+
+    <!-- Weight log (grid) screen -->
+    <string name="summary_goal_label">Goal</string>
+    <string name="summary_latest_label">Latest</string>
+    <string name="summary_to_go">%1$s lb from your goal</string>
+    <string name="summary_reached">You reached your goal. Nice work.</string>
+    <string name="summary_passed">You passed your goal by %1$s lb. Nice work.</string>
+    <string name="progress_start">Start %1$s</string>
+    <string name="progress_goal">Goal %1$s</string>
+    <string name="progress_percent">%1$d%% of the way</string>
+    <string name="progress_done">Goal reached</string>
+    <string name="summary_no_goal">Set a goal weight to see how far you have to go.</string>
+    <string name="summary_no_entries">Add your first weigh-in to start tracking.</string>
+    <string name="summary_edit_goal">Edit goal</string>
+    <string name="summary_set_goal">Set goal</string>
+    <string name="summary_not_set">--</string>
+    <string name="section_weigh_ins">Weigh-ins</string>
+    <string name="column_date">Date</string>
+    <string name="column_weight">Weight</string>
+    <string name="column_change">Change</string>
+    <string name="column_delete">Delete</string>
+    <string name="empty_grid">No weigh-ins yet. Tap Add weight to record today\'s weight.</string>
+    <string name="add_weight">Add weight</string>
+    <string name="weight_value">%1$s lb</string>
+    <string name="change_up">▲ %1$s</string>
+    <string name="change_down">▼ %1$s</string>
+    <string name="change_none">no change</string>
+    <string name="change_first">first entry</string>
+    <string name="row_edit_description">Edit the weigh-in from %1$s</string>
+    <string name="row_delete_description">Delete the weigh-in from %1$s</string>
+    <string name="delete_title">Delete this weigh-in?</string>
+    <string name="delete_message">The %1$s lb entry from %2$s will be removed from your history.</string>
+    <string name="delete_confirm">Delete</string>
+    <string name="deleted_snackbar">Weigh-in deleted</string>
+    <string name="undo">Undo</string>
+    <string name="replace_title">Replace this day\'s weigh-in?</string>
+    <string name="replace_message">You already have %1$s lb recorded for %2$s. Do you want to replace it with %3$s lb?</string>
+    <string name="replace_confirm">Replace</string>
+    <string name="added_snackbar">Weigh-in saved</string>
+    <string name="updated_snackbar">Weigh-in updated</string>
+    <string name="save_failed_snackbar">That weigh-in couldn\'t be saved. Please try again.</string>
+    <string name="goal_reached_in_app">You reached your goal of %1$s lb.</string>
+    <string name="goal_reached_text_sent">You reached your goal of %1$s lb. A text is on its way.</string>
+
+    <!-- App bar menu on the weight log -->
+    <string name="menu_goal">Goal weight</string>
+    <string name="menu_sms">Text notifications</string>
+    <string name="menu_sign_out">Sign out</string>
+
+    <!-- Add / edit weigh-in dialog -->
+    <string name="entry_add_title">Add weigh-in</string>
+    <string name="entry_edit_title">Edit weigh-in</string>
+    <string name="entry_date">Date</string>
+    <string name="entry_weight">Weight</string>
+    <string name="entry_weight_helper">Pounds, up to one decimal place</string>
+    <string name="entry_weight_error">Enter a weight between 50 and 700 lb</string>
+    <string name="entry_pick_date">Pick a date</string>
+    <string name="unit_lb">lb</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <!-- Goal screen -->
+    <string name="goal_title">Set your goal weight</string>
+    <string name="goal_body">Scalable compares each new weigh-in against this number. It works the same whether you are working down to it, working up to it, or holding steady.</string>
+    <string name="goal_latest_label">Latest weigh-in</string>
+    <string name="goal_latest_value">%1$s lb on %2$s</string>
+    <string name="goal_latest_none">No weigh-ins yet</string>
+    <string name="goal_field">Goal weight</string>
+    <string name="goal_direction_down">You are working down to this number, %1$s lb from your latest weigh-in.</string>
+    <string name="goal_direction_up">You are working up to this number, %1$s lb from your latest weigh-in.</string>
+    <string name="goal_direction_same">This matches your latest weigh-in, so Scalable will help you hold steady.</string>
+    <string name="goal_direction_hint">Type a goal to see which way you are heading.</string>
+    <string name="goal_save">Save goal</string>
+    <string name="goal_saved">Goal saved</string>
+
+    <!-- SMS notification screen -->
+    <string name="sms_title">Text me when I reach my goal</string>
+    <string name="sms_body">Scalable can send one text message to your phone on the day a weigh-in reaches your goal. Your weigh-ins never leave this phone, and that text is the only thing the app sends.</string>
+    <string name="sms_section_setting">Setting</string>
+    <string name="sms_switch">Send SMS notifications</string>
+    <string name="sms_phone">Phone number for texts</string>
+    <string name="sms_phone_helper">A 10-digit U.S. number, usually your own phone.</string>
+    <string name="sms_phone_error">Enter a full 10-digit phone number, like (555) 123-4567.</string>
+    <string name="sms_section_status">Status</string>
+    <string name="sms_status_off">Off. Scalable will not send any text messages. You will still see your goal message inside the app.</string>
+    <string name="sms_status_on">On. Scalable has permission to send texts and will send one when you reach your goal.</string>
+    <string name="sms_status_needs_phone">Almost on. Scalable has permission to send texts, but it needs a full 10-digit phone number first. Enter the number above and texts will turn on.</string>
+    <string name="sms_status_denied">Permission denied. Scalable keeps working normally, but it will not send text messages. Your goal message will show inside the app instead.</string>
+    <string name="sms_status_blocked">SMS permission is turned off for Scalable in Android settings. To get texts, allow SMS for Scalable there and then turn this setting back on.</string>
+    <string name="sms_status_unsupported">This device cannot send text messages, so SMS notifications are unavailable. Goal messages will show inside the app.</string>
+    <string name="sms_open_settings">Open app settings</string>
+    <string name="sms_section_preview">Message preview</string>
+    <string name="sms_preview">Scalable: You reached your goal weight of %1$s lb today. Nice work sticking with it.</string>
+    <string name="sms_rationale_title">Allow Scalable to send texts?</string>
+    <string name="sms_rationale_message">Android will ask whether Scalable may send SMS messages. Scalable only uses this to text you when you reach your goal, and you can turn it off here at any time.</string>
+    <string name="sms_rationale_continue">Continue</string>
+    <string name="sms_rationale_not_now">Not now</string>
+</resources>

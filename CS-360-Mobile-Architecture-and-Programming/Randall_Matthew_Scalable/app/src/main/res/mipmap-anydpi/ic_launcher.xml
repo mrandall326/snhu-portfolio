@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    ic_launcher.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 2, 2026
+-->
+<!--
+    The app's standard launcher icon. The teal background and the white scale foreground are separate
+    layers so the launcher can crop the background to its own shape and animate the two layers
+    independently. The foreground doubles as the monochrome layer for themed home screens.
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
+</adaptive-icon>

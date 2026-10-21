@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    activity_main.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    The single activity that hosts every Scalable screen. It holds only two things: the top app
+    bar, and the navigation host (in content_main.xml) that swaps the screens in and out. Keeping
+    one activity means one app bar and one set of transitions for the whole app, which is what
+    makes moving between screens feel consistent. The Add weight button belongs to the weigh-in
+    screen instead of this activity, since that is the only screen where adding makes sense.
+
+    The two are stacked in a vertical LinearLayout, app bar on top and screens underneath. The app
+    bar never scrolls away, so nothing more is needed, and when MainActivity hides the bar on the
+    login screen the screens simply move up to fill its space, starting right below the status bar.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--
+        Top app bar. MainActivity hides it on the login screen, where the logo serves as the title.
+        MainActivity's padding already keeps it below the status bar, so it doesn't add the
+        status bar's height again on its own, which would leave an empty gap above the title.
+    -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- The screens take up all of the height the app bar leaves. -->
+    <include
+        layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

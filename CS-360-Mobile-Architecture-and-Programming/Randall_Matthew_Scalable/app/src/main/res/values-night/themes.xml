@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    themes.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<resources>
+    <!--
+        Dark theme. It maps the same color roles as the light theme, and the darker palette comes
+        from values-night/colors.xml. If a role is ever added to the light theme, it needs to be
+        added here too so both themes stay in step.
+    -->
+    <style name="Base.Theme.Randall_Matthew_Scalable" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/scalable_primary</item>
+        <item name="colorOnPrimary">@color/scalable_on_primary</item>
+        <item name="colorPrimaryContainer">@color/scalable_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/scalable_on_primary_container</item>
+        <item name="colorSecondary">@color/scalable_secondary</item>
+        <item name="colorOnSecondary">@color/scalable_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/scalable_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/scalable_on_secondary_container</item>
+        <item name="colorTertiary">@color/scalable_tertiary</item>
+        <item name="colorOnTertiary">@color/scalable_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/scalable_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/scalable_on_tertiary_container</item>
+        <item name="android:colorBackground">@color/scalable_background</item>
+        <item name="colorSurface">@color/scalable_surface</item>
+        <item name="colorSurfaceVariant">@color/scalable_surface_variant</item>
+        <item name="colorOnSurface">@color/scalable_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/scalable_on_surface_variant</item>
+        <item name="colorOutline">@color/scalable_outline</item>
+    </style>
+</resources>

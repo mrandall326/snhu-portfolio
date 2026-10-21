@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    dialog_weight_entry.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    ADD / EDIT WEIGH-IN DIALOG
+
+    This content sits inside a Material dialog that opens over the weigh-in grid, so the user
+    never loses sight of their history while adding to it. The same layout serves both adding
+    and editing. In edit mode the title changes, the entry's date and weight are filled in, and
+    a Delete button is added.
+
+    Focus order: the weight field takes focus first with the number keyboard already up, because
+    the date is filled in as today and is right for nearly every weigh-in. The date field sits
+    above it so it is visible and easy to change, but tapping it opens a calendar instead of a
+    keyboard, which rules out typing a badly formatted date.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/screen_margin"
+    android:paddingTop="8dp"
+    android:paddingEnd="@dimen/screen_margin">
+
+    <!-- Date: read-only text field that opens a date picker when tapped. -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/date_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/entry_date"
+        app:endIconContentDescription="@string/entry_pick_date"
+        app:endIconDrawable="@drawable/ic_calendar"
+        app:endIconMode="custom">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/date_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--
+        Weight: decimal keyboard, "lb" suffix so the unit is never in doubt, and helper text that
+        turns into an error message if the number is outside a believable range.
+    -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_gap"
+        android:hint="@string/entry_weight"
+        app:helperText="@string/entry_weight_helper"
+        app:suffixText="@string/unit_lb">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:maxLength="5" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

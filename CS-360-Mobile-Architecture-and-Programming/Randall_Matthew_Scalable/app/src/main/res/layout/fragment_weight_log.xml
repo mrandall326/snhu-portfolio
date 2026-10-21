@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    fragment_weight_log.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    WEIGHT LOG SCREEN (the database grid, and the app's home screen)
+
+    The screen is split into three groups, from most important to most detailed:
+      1. Goal summary card: goal weight and latest weigh-in side by side, a progress bar, and one
+         sentence saying how far the user has to go. This answers "how am I doing?" at a glance.
+      2. The weigh-in grid: a header row naming the Date, Weight, and Change columns, with an
+         unlabeled space over the column of delete buttons, then one row per weigh-in, newest first.
+      3. Add weight button: a floating button in the lower right, within easy reach of the thumb,
+         that opens the add dialog over this screen instead of leaving it.
+
+    Each row carries its own delete button, and pressing and holding a row is a shortcut to the
+    same delete confirmation. Tapping anywhere else on a row opens it for editing.
+    The rows come from the signed-in user's weigh-ins in the daily_weight table of the app's
+    SQLite database, so entries are saved between launches. A new user starts with an empty grid,
+    and the empty_state message takes the grid's place until the first weigh-in is added.
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeightLogFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 1. Goal summary card. Tapping the card or the Edit goal button opens the goal screen. -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/summary_card"
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Goal and latest weight, side by side so they can be compared directly. -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="4dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/summary_goal_label"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                            android:textColor="?attr/colorOnPrimaryContainer"
+                            app:drawableStartCompat="@drawable/ic_flag"
+                            app:drawableTint="?attr/colorTertiary" />
+
+                        <TextView
+                            android:id="@+id/goal_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                            android:textColor="?attr/colorOnPrimaryContainer"
+                            android:textStyle="bold"
+                            tools:text="185.0 lb" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <!--
+                            Same height as the Goal label, which is as tall as its flag icon, so
+                            the goal and latest weights below them line up across the card.
+                        -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:minHeight="24dp"
+                            android:text="@string/summary_latest_label"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
+
+                        <TextView
+                            android:id="@+id/latest_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                            android:textColor="?attr/colorOnPrimaryContainer"
+                            android:textStyle="bold"
+                            tools:text="197.4 lb" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--
+                    Progress from the weight at the time the goal was set toward the goal, in
+                    either direction. The bar turns amber, the goal color, once the goal is reached.
+                -->
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/goal_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_gap"
+                    android:max="100"
+                    app:indicatorColor="?attr/colorPrimary"
+                    app:trackColor="?attr/colorSurface"
+                    app:trackCornerRadius="4dp"
+                    app:trackThickness="8dp"
+                    tools:progress="60" />
+
+                <!--
+                    Labels for the progress bar. The left end of the bar is the weight the user
+                    was at when they set the goal, the right end is the goal, and the middle label
+                    says how much of that distance is covered. Without these, a bar on its own
+                    doesn't say what it is measuring, especially for someone gaining weight,
+                    where "more bar" means a higher number.
+                -->
+                <LinearLayout
+                    android:id="@+id/progress_labels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tight_gap"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/progress_start_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+                        android:textColor="?attr/colorOnPrimaryContainer"
+                        tools:text="Start 203.0" />
+
+                    <TextView
+                        android:id="@+id/progress_percent_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+                        android:textColor="?attr/colorOnPrimaryContainer"
+                        android:textStyle="bold"
+                        tools:text="31% of the way" />
+
+                    <TextView
+                        android:id="@+id/progress_goal_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+                        android:textColor="?attr/colorOnPrimaryContainer"
+                        tools:text="Goal 185.0" />
+                </LinearLayout>
+
+                <!-- One plain sentence that reads the same whether the user is losing or gaining. -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tight_gap"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/summary_message"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:accessibilityLiveRegion="polite"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                        android:textColor="?attr/colorOnPrimaryContainer"
+                        tools:text="12.4 lb from your goal" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/edit_goal_button"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/touch_target"
+                        android:text="@string/summary_edit_goal" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. The weigh-in grid. -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/group_gap"
+            android:layout_marginBottom="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/section_weigh_ins"
+            android:textAppearance="@style/TextAppearance.Scalable.SectionLabel" />
+
+        <!--
+            Column headers. The widths and weights here are the same ones used in
+            item_weight_entry.xml, so every value sits directly under its header.
+        -->
+        <LinearLayout
+            android:id="@+id/grid_header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="?attr/colorSecondaryContainer"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.3"
+                android:text="@string/column_date"
+                android:textAppearance="@style/TextAppearance.Scalable.ColumnHeader" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/column_weight"
+                android:textAppearance="@style/TextAppearance.Scalable.ColumnHeader" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/column_change"
+                android:textAppearance="@style/TextAppearance.Scalable.ColumnHeader" />
+
+            <!-- Spacer over the delete column; screen readers skip it. -->
+            <Space
+                android:layout_width="@dimen/delete_column_width"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!--
+                The grid itself. A RecyclerView reuses row views as the user scrolls, so a year of
+                daily entries scrolls as smoothly as a week. Bottom padding with clipToPadding off
+                lets the last row scroll up clear of the Add weight button.
+            -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/weight_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/list_bottom_clearance"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="8"
+                tools:listitem="@layout/item_weight_entry" />
+
+            <!-- Empty state, shown instead of a blank list on first use. -->
+            <TextView
+                android:id="@+id/empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:gravity="center"
+                android:padding="@dimen/screen_margin"
+                android:text="@string/empty_grid"
+                android:textAppearance="@style/TextAppearance.Scalable.Supporting"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- 3. Add weight. Extended so the label says exactly what it does. -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/add_weight_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/add_weight"
+        android:text="@string/add_weight"
+        app:icon="@drawable/ic_add" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

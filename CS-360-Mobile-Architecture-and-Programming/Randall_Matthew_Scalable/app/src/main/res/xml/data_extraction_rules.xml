@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    data_extraction_rules.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 2, 2026
+-->
+<!--
+    Backup rules for Android 12 and newer. Both sections are left without include or exclude
+    lists, which tells Android to copy all of the app's data, both to the user's cloud backup and
+    when moving directly to a new phone. That data is the database of accounts, weigh-ins, goals,
+    and text notification settings (passwords only as salted hashes), so a user's history and
+    settings come with them.
+-->
+<data-extraction-rules>
+    <cloud-backup />
+    <device-transfer />
+</data-extraction-rules>

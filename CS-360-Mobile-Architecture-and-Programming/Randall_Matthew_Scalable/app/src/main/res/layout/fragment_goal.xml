@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    fragment_goal.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    GOAL WEIGHT SCREEN (opened from the weigh-in grid)
+
+    Groups, top to bottom:
+      1. Title and a short explanation of what the goal is used for.
+      2. Context card showing the latest weigh-in, so the user can pick a goal with the
+         current number in front of them instead of having to remember it.
+      3. The goal field, with a live sentence underneath that says which direction the user is
+         heading as they type. The app never assumes everyone is trying to lose weight.
+      4. Save and Cancel, side by side at the bottom, with Save as the filled primary button.
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".GoalFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_margin">
+
+        <!-- 1. Title and explanation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/goal_title"
+            android:textAppearance="@style/TextAppearance.Scalable.ScreenTitle"
+            app:drawableStartCompat="@drawable/ic_flag"
+            app:drawableTint="?attr/colorTertiary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/goal_body"
+            android:textAppearance="@style/TextAppearance.Scalable.Supporting" />
+
+        <!-- 2. Latest weigh-in, for context -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/group_gap"
+            app:cardBackgroundColor="?attr/colorSecondaryContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goal_latest_label"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                    android:textColor="?attr/colorOnSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/latest_weight_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                    android:textColor="?attr/colorOnSecondaryContainer"
+                    android:textStyle="bold"
+                    tools:text="197.4 lb on Wed, Oct 1" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. Goal field and live direction sentence -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/goal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/group_gap"
+            android:hint="@string/goal_field"
+            app:startIconContentDescription="@string/goal_field"
+            app:startIconDrawable="@drawable/ic_flag"
+            app:suffixText="@string/unit_lb">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/goal_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/goal_direction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:accessibilityLiveRegion="polite"
+            android:text="@string/goal_direction_hint"
+            android:textAppearance="@style/TextAppearance.Scalable.Supporting"
+            tools:text="You are working down to this number, 12.4 lb from your latest weigh-in." />
+
+        <!--
+            Pushes the buttons to the bottom on tall screens. On short screens, or while the
+            keyboard is open, the screen scrolls instead, and GoalFragment scrolls the buttons
+            back into view when the keyboard opens.
+        -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="@dimen/group_gap" />
+
+        <!-- 4. Actions. Cancel on the left, Save on the right, following the Material dialog order. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/group_gap"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/goal_cancel_button"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:minHeight="56dp"
+                android:text="@string/cancel" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/goal_save_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:minHeight="56dp"
+                android:text="@string/goal_save" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

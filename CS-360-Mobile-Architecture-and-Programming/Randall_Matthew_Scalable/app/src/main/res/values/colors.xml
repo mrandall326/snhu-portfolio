@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    colors.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    Scalable color palette (light theme).
+    The layouts pull their colors from the theme attributes in themes.xml rather than from these
+    values directly, so the whole app changes together if the palette ever changes. The one place
+    code uses these values directly is the goal progress bar in WeightLogFragment, which switches
+    between the primary and tertiary colors when the goal is reached. The primary
+    color is a deep teal, chosen because it reads as calm and steady instead of as "good" or
+    "bad". Scalable deliberately avoids green and red for weight changes, since gaining weight is
+    the goal for some users and losing it is the goal for others.
+-->
+<resources>
+    <!-- Primary: used for the main action on each screen (Sign in, Save, the Add weight button). -->
+    <color name="scalable_primary">#FF1F6F6B</color>
+    <color name="scalable_on_primary">#FFFFFFFF</color>
+    <color name="scalable_primary_container">#FFB4EFE9</color>
+    <color name="scalable_on_primary_container">#FF00201E</color>
+
+    <!-- Secondary: a muted slate used for supporting surfaces like the column header row. -->
+    <color name="scalable_secondary">#FF4A6361</color>
+    <color name="scalable_on_secondary">#FFFFFFFF</color>
+    <color name="scalable_secondary_container">#FFCCE8E5</color>
+    <color name="scalable_on_secondary_container">#FF051F1E</color>
+
+    <!-- Tertiary: a warm amber reserved for the goal, so the goal stands out wherever it appears. -->
+    <color name="scalable_tertiary">#FF825500</color>
+    <color name="scalable_on_tertiary">#FFFFFFFF</color>
+    <color name="scalable_tertiary_container">#FFFFDDB3</color>
+    <color name="scalable_on_tertiary_container">#FF291800</color>
+
+    <!--
+        Launcher icon background. It is the light theme's primary teal, kept as its own color with
+        no dark version, so the icon on the home screen looks the same no matter which theme the
+        phone is using.
+    -->
+    <color name="launcher_background">#FF1F6F6B</color>
+
+    <!-- Background and surfaces. -->
+    <color name="scalable_background">#FFF5FBF9</color>
+    <color name="scalable_surface">#FFF5FBF9</color>
+    <color name="scalable_surface_variant">#FFDAE5E3</color>
+    <color name="scalable_on_surface">#FF171D1C</color>
+    <color name="scalable_on_surface_variant">#FF3F4947</color>
+    <color name="scalable_outline">#FF6F7977</color>
+</resources>

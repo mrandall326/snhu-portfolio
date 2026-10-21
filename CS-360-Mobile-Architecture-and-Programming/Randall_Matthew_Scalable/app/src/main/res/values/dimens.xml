@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    dimens.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<resources>
+    <!--
+        Spacing scale. The margins that separate and space out each screen's groups come from
+        this short list, which is what makes the whitespace feel even from screen to screen.
+        Larger gaps separate groups; smaller gaps sit between items inside a group, so spacing
+        alone shows what belongs together. Small fixed values, like the padding inside a card,
+        are set directly in the layouts.
+    -->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="screen_margin">24dp</dimen>
+    <dimen name="group_gap">24dp</dimen>
+    <dimen name="item_gap">12dp</dimen>
+    <dimen name="tight_gap">4dp</dimen>
+
+    <!-- 48dp is the minimum touch target from the Android accessibility guidelines. -->
+    <dimen name="touch_target">48dp</dimen>
+    <dimen name="grid_row_height">56dp</dimen>
+    <dimen name="logo_size">72dp</dimen>
+
+    <!-- Grid column widths. The delete column is fixed so the other columns always line up. -->
+    <dimen name="delete_column_width">48dp</dimen>
+
+    <!-- Bottom padding on the list so the last row can scroll clear of the Add weight button. -->
+    <dimen name="list_bottom_clearance">96dp</dimen>
+</resources>

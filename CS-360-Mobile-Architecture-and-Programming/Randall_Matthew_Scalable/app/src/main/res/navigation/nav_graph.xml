@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    nav_graph.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    NAVIGATION GRAPH
+
+    How the user moves through Scalable:
+
+        Login ──► Weigh-in grid (home) ──► Add / edit dialog  (opens over the grid)
+                        │   ▲
+                        │   └── Back
+                        ├──► Goal weight
+                        └──► Text notifications
+
+    - Login is the start destination. Signing in or creating an account replaces it with the grid
+      (popUpTo + popUpToInclusive), so pressing Back from the grid leaves the app instead of
+      returning to the login form.
+    - Every other screen is opened from the grid and returns to it, so the user is never more
+      than one step away from their history.
+    - Signing out clears the grid off the back stack and returns to Login.
+
+    Every screen-to-screen action uses the same four animations (slide and fade forward, reverse
+    on Back), so transitions feel the same no matter which screen the user is moving between.
+    Signing out uses the Back pair, so returning to Login reads as stepping backward. The dialog
+    is a <dialog> destination, which gets the standard dialog fade instead of a slide, since it
+    opens on top of the grid rather than replacing it.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Login screen -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.zybooks.randall_matthew_scalable.LoginFragment"
+        android:label="@string/label_login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_login_to_weightLog"
+            app:destination="@id/weightLogFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Weigh-in grid (home) -->
+    <fragment
+        android:id="@+id/weightLogFragment"
+        android:name="com.zybooks.randall_matthew_scalable.WeightLogFragment"
+        android:label="@string/label_weight_log"
+        tools:layout="@layout/fragment_weight_log">
+
+        <action
+            android:id="@+id/action_weightLog_to_entryDialog"
+            app:destination="@id/weightEntryDialog" />
+
+        <action
+            android:id="@+id/action_weightLog_to_goal"
+            app:destination="@id/goalFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_weightLog_to_sms"
+            app:destination="@id/smsNotificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_weightLog_to_login"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/weightLogFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Add / edit weigh-in dialog. Arguments are empty for a new entry. -->
+    <dialog
+        android:id="@+id/weightEntryDialog"
+        android:name="com.zybooks.randall_matthew_scalable.WeightEntryDialogFragment"
+        tools:layout="@layout/dialog_weight_entry">
+
+        <argument
+            android:name="entry_id"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <argument
+            android:name="entry_epoch_day"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <argument
+            android:name="entry_weight"
+            android:defaultValue="0.0"
+            app:argType="float" />
+    </dialog>
+
+    <!-- Goal weight screen -->
+    <fragment
+        android:id="@+id/goalFragment"
+        android:name="com.zybooks.randall_matthew_scalable.GoalFragment"
+        android:label="@string/label_goal"
+        tools:layout="@layout/fragment_goal">
+
+        <argument
+            android:name="current_goal"
+            android:defaultValue="0.0"
+            app:argType="float" />
+        <argument
+            android:name="latest_weight"
+            android:defaultValue="0.0"
+            app:argType="float" />
+        <argument
+            android:name="latest_epoch_day"
+            android:defaultValue="-1L"
+            app:argType="long" />
+    </fragment>
+
+    <!-- SMS notification screen -->
+    <fragment
+        android:id="@+id/smsNotificationFragment"
+        android:name="com.zybooks.randall_matthew_scalable.SmsNotificationFragment"
+        android:label="@string/label_sms"
+        tools:layout="@layout/fragment_sms">
+
+        <argument
+            android:name="goal_weight"
+            android:defaultValue="0.0"
+            app:argType="float" />
+    </fragment>
+</navigation>

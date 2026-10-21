@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    slide_out_right.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!-- Exit animation for going back: the current screen slides away to the right. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@android:integer/config_mediumAnimTime"
+    android:interpolator="@android:interpolator/fast_out_slow_in">
+    <translate
+        android:fromXDelta="0%"
+        android:toXDelta="25%" />
+    <alpha
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0" />
+</set>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    AndroidManifest.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        SMS support.
+        uses-feature declares that Scalable uses the phone's telephony (text messaging) hardware.
+        required="false" means the app can still be installed on devices without it, such as
+        Wi-Fi-only tablets. On those devices the notification screen explains that texts aren't
+        available, and everything else in the app works normally.
+    -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <!--
+        SEND_SMS is a "dangerous" permission, so declaring it here is not enough on its own.
+        The app also asks the user at runtime, on the Text notifications screen, and checks
+        again right before every text it sends.
+    -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Randall_Matthew_Scalable">
+
+        <!--
+            The only activity. Because the app draws edge to edge, Android doesn't resize the
+            screen for the keyboard on its own. adjustResize lets the app handle it instead, and
+            MainActivity pads the screen by the keyboard's height, so the login and goal fields and
+            their buttons stay visible while typing.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Randall_Matthew_Scalable"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

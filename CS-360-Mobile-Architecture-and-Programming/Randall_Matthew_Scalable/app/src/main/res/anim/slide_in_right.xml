@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    slide_in_right.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!-- Enter animation for moving forward: the new screen slides in from the right and fades in. All four animations are shared by every screen-to-screen navigation action, so moving forward always looks the same and going back always reverses it. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@android:integer/config_mediumAnimTime"
+    android:interpolator="@android:interpolator/fast_out_slow_in">
+    <translate
+        android:fromXDelta="25%"
+        android:toXDelta="0%" />
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+</set>

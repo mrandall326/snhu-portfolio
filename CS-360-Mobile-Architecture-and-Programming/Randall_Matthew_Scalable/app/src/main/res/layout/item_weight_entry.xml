@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    item_weight_entry.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    ONE ROW OF THE WEIGH-IN GRID
+
+    Columns: Date | Weight | Change | Delete. The column weights match the header row in
+    fragment_weight_log.xml exactly so the grid lines up. Weight is the boldest value in the row,
+    because it is the number the user is scanning for. Change shows the difference from the
+    previous weigh-in with a plain up or down arrow and no red or green, since whether up is good
+    depends on the user's goal.
+
+    The whole row is a touch target for editing (tap) and deleting (press and hold), and the
+    delete button is a separate 48dp target at the far end, so a tap meant for one can't land on
+    the other. Deleting from the row, with either the button or a long press, asks for
+    confirmation first. Deleting from inside the edit dialog doesn't ask again, since opening the
+    entry and choosing Delete is already deliberate. Undo is offered after every delete.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/row_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/grid_row_height"
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:paddingEnd="8dp">
+
+    <TextView
+        android:id="@+id/row_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.3"
+        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+        tools:text="Wed, Oct 1" />
+
+    <TextView
+        android:id="@+id/row_weight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:textStyle="bold"
+        tools:text="197.4 lb" />
+
+    <TextView
+        android:id="@+id/row_change"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:textAppearance="@style/TextAppearance.Scalable.Supporting"
+        tools:text="▼ 0.6" />
+
+    <ImageButton
+        android:id="@+id/row_delete"
+        android:layout_width="@dimen/delete_column_width"
+        android:layout_height="@dimen/touch_target"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/column_delete"
+        android:src="@drawable/ic_delete"
+        app:tint="?attr/colorOnSurfaceVariant" />
+
+</LinearLayout>

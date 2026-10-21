@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    themes.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<resources>
+    <!--
+        Base application theme. Scalable is built on Material 3 so that the buttons, text fields,
+        switches, and dialogs all follow the Android component guidelines without custom drawing.
+        The palette is mapped onto the Material color roles here, once, and every layout refers to
+        roles like ?attr/colorPrimary instead of hard-coded colors. That is what keeps the theme
+        consistent from the login screen through the notification settings.
+    -->
+    <style name="Base.Theme.Randall_Matthew_Scalable" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/scalable_primary</item>
+        <item name="colorOnPrimary">@color/scalable_on_primary</item>
+        <item name="colorPrimaryContainer">@color/scalable_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/scalable_on_primary_container</item>
+        <item name="colorSecondary">@color/scalable_secondary</item>
+        <item name="colorOnSecondary">@color/scalable_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/scalable_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/scalable_on_secondary_container</item>
+        <item name="colorTertiary">@color/scalable_tertiary</item>
+        <item name="colorOnTertiary">@color/scalable_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/scalable_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/scalable_on_tertiary_container</item>
+        <item name="android:colorBackground">@color/scalable_background</item>
+        <item name="colorSurface">@color/scalable_surface</item>
+        <item name="colorSurfaceVariant">@color/scalable_surface_variant</item>
+        <item name="colorOnSurface">@color/scalable_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/scalable_on_surface_variant</item>
+        <item name="colorOutline">@color/scalable_outline</item>
+    </style>
+
+    <style name="Theme.Randall_Matthew_Scalable" parent="Base.Theme.Randall_Matthew_Scalable" />
+
+    <!--
+        Shared text styles. Instead of setting sizes on individual views, each kind of text gets
+        one style so the same role always looks the same on every screen:
+        - ScreenTitle: the one large heading at the top of a screen, which tells the user where
+          they are before anything else.
+        - SectionLabel: small, all-caps labels in the primary color that name a group of
+          controls, used to separate groups without drawing extra boxes.
+        - ColumnHeader: the labels over each column of the weigh-in grid.
+        - Supporting: secondary explanation text in a quieter color so it never competes with
+          the controls it explains.
+    -->
+    <style name="TextAppearance.Scalable.ScreenTitle" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="TextAppearance.Scalable.SectionLabel" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Scalable.ColumnHeader" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textColor">?attr/colorOnSecondaryContainer</item>
+    </style>
+
+    <style name="TextAppearance.Scalable.Supporting" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+</resources>

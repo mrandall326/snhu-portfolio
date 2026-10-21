@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    menu_main.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    App bar menu for the weigh-in grid. The two settings the user visits most, the goal and text
+    notifications, show as icons right in the app bar. Sign out is tucked into the overflow menu,
+    because it is used rarely and should be hard to hit by accident.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.zybooks.randall_matthew_scalable.WeightLogFragment">
+    <item
+        android:id="@+id/action_goal"
+        android:icon="@drawable/ic_flag"
+        android:orderInCategory="10"
+        android:title="@string/menu_goal"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_sms"
+        android:icon="@drawable/ic_sms"
+        android:orderInCategory="20"
+        android:title="@string/menu_sms"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_sign_out"
+        android:icon="@drawable/ic_logout"
+        android:orderInCategory="100"
+        android:title="@string/menu_sign_out"
+        app:showAsAction="never" />
+</menu>

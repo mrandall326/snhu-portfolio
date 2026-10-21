@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    ic_scalable_logo.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    Scalable logo: a simple bathroom scale seen from above, with a dial window and a needle.
+    It uses the same flat, filled style as the rest of the app's icons so the logo feels like part
+    of the same family. The body takes the primary color and the dial is cut out in the surface
+    color, which keeps the logo readable in both the light and dark themes.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Body of the scale. -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="M6,3h12a3,3 0,0 1,3 3v12a3,3 0,0 1,-3 3H6a3,3 0,0 1,-3 -3V6a3,3 0,0 1,3 -3z" />
+    <!-- Dial window. -->
+    <path
+        android:fillColor="?attr/colorSurface"
+        android:pathData="M7,11a5,5 0,0 1,10 0z" />
+    <!-- Needle pointing just past center. -->
+    <path
+        android:strokeColor="?attr/colorPrimary"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M12,11L14.2,7.6" />
+    <!-- Foot pads, a small detail that makes the shape read as a scale and not a box. -->
+    <path
+        android:fillColor="?attr/colorSurface"
+        android:pathData="M7.5,16.5h3v1.5h-3zM13.5,16.5h3v1.5h-3z" />
+</vector>

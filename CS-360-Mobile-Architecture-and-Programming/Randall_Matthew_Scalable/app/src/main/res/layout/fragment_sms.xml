@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File:    fragment_sms.xml
+    Project: Scalable, a weight-tracking app (Option 3)
+    Course:  CS 360 Mobile Architecture and Programming
+             Southern New Hampshire University
+    Author:  Matthew Randall
+    Created: October 1, 2026
+-->
+<!--
+    SMS NOTIFICATION SCREEN (opened from the weigh-in grid's app bar)
+
+    This is where the user decides whether Scalable may text them, and where the app reports back
+    what it is allowed to do. Groups, top to bottom:
+      1. Explanation: what the text is for and the reassurance that weigh-ins stay on the phone,
+         so the user understands the request before Android asks for permission.
+      2. Setting: the on/off switch, which defaults to OFF, and the phone number the text goes to.
+         The number field is only enabled while the switch is on, and it only accepts a complete
+         10-digit U.S. phone number.
+      3. Status: one icon and one sentence reflecting the user's answer to the permission request
+         (on, off, denied, blocked in settings, or not supported on this device). If permission is
+         granted but no phone number has been entered yet, the status asks for one instead of
+         reading "On." When permission has been permanently denied, a button to open Android's
+         app settings appears here.
+      4. Preview: the exact message the user would receive, so there are no surprises.
+
+    The setting lives on its own screen, opened from the grid's app bar, so the grid stays focused
+    on weigh-ins. The choice and the phone number are saved, so they are remembered the next time
+    the app opens.
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SmsNotificationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_margin">
+
+        <!-- 1. Explanation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/sms_title"
+            android:textAppearance="@style/TextAppearance.Scalable.ScreenTitle"
+            app:drawableStartCompat="@drawable/ic_sms"
+            app:drawableTint="?attr/colorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/sms_body"
+            android:textAppearance="@style/TextAppearance.Scalable.Supporting" />
+
+        <!-- 2. Setting -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/group_gap"
+            android:accessibilityHeading="true"
+            android:text="@string/sms_section_setting"
+            android:textAppearance="@style/TextAppearance.Scalable.SectionLabel" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Material3.CardView.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- checked="false": SMS is opt-in, never on by default. -->
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/sms_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:minHeight="@dimen/touch_target"
+                    android:text="@string/sms_switch"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+
+                <!--
+                    Phone number. The phone keyboard only offers digits and dialing symbols, and
+                    maxLength 15 is just long enough for the longest formatted U.S. number,
+                    "+1 555-123-4567", which keeps the field from running on. Length alone doesn't
+                    decide what is valid, though. SmsNotificationFragment formats the number as it
+                    is typed and only saves it once it is exactly a 10-digit number.
+                -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_gap"
+                    android:enabled="false"
+                    android:hint="@string/sms_phone"
+                    app:helperText="@string/sms_phone_helper">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="phone"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:maxLength="15" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. Status, updated after every permission answer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/group_gap"
+            android:accessibilityHeading="true"
+            android:text="@string/sms_section_status"
+            android:textAppearance="@style/TextAppearance.Scalable.SectionLabel" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/status_card"
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="?attr/colorSurfaceVariant">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Live region so screen readers announce the new status when it changes. -->
+                <TextView
+                    android:id="@+id/sms_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:accessibilityLiveRegion="polite"
+                    android:drawablePadding="12dp"
+                    android:text="@string/sms_status_off"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    app:drawableStartCompat="@drawable/ic_info"
+                    app:drawableTint="?attr/colorOnSurfaceVariant" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/open_settings_button"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:minHeight="@dimen/touch_target"
+                    android:text="@string/sms_open_settings"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 4. Preview of the text message, styled like a chat bubble. -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/group_gap"
+            android:accessibilityHeading="true"
+            android:text="@string/sms_section_preview"
+            android:textAppearance="@style/TextAppearance.Scalable.SectionLabel" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="48dp"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+            app:cardCornerRadius="16dp">
+
+            <TextView
+                android:id="@+id/sms_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                tools:text="Scalable: You reached your goal weight of 185.0 lb today. Nice work sticking with it." />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
