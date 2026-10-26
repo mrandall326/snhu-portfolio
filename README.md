@@ -18,7 +18,7 @@ The repo is organized by course, with each folder containing its own README and 
 - [CS 340 – Client/Server Development](CS-340-Client-Server-Development) (Completed)
 - [CS 360 – Mobile Architecture and Programming](CS-360-Mobile-Architecture-and-Programming) (Completed)
 - [CS 370 – Current/Emerging Trends in Computer Science](CS-370-Current-Emerging-Trends-in-CS) (Completed)
-- CS 465 – Full Stack Development (Upcoming)
+- [CS 465 – Full Stack Development](https://github.com/mrandall326/CS-465) (In Progress, kept in its own repository so each module can have its own branch)
 - CS 499 – Computer Science Capstone (Upcoming)
 
 As I complete each course, I add the major deliverables, diagrams, and code so the repository grows alongside my experience.
